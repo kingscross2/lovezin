@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pedido de Namoro</title>
+  <style>
+    body {
+      background-color: pink;
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+    
+    h1 {
+      color: red;
+    }
+    
+    .coracao {
+      color: red;
+      font-size: 24px;
+    }
+    
+    #nao {
+      position: absolute;
+      font-size: 18px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    #sim {
+      font-size: 72px;
+      margin-top: 30px;
+    }
+    
+    #mensagem-final {
+      display: none;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Aceita ser minha namorada super extra plus?</h1>
+  
+  <div class="coracao">&hearts;</div>
+  
+  <button id="nao" onclick="moverOpcaoNao()">Não</button>
+  
+  <div id="sim">
+    <button onclick="mostrarMensagemFinal()">Sim</button>
+  </div>
+  
+  <div id="mensagem-final">
+    <h2>Feliz dia dos namorados, Ruivão. Te amo muito!</h2>
+    <img src="Amor.jpg" alt="Foto do casal">
+  </div>
+  
+  <script>
+    function moverOpcaoNao() {
+      var naoButton = document.querySelector('#nao');
+      var telaWidth = window.innerWidth - naoButton.clientWidth;
+      var telaHeight = window.innerHeight - naoButton.clientHeight;
+      
+      var novoLeft = Math.random() * telaWidth;
+      var novoTop = Math.random() * telaHeight;
+      
+      naoButton.style.left = novoLeft + 'px';
+      naoButton.style.top = novoTop + 'px';
+    }
+    
+    function mostrarMensagemFinal() {
+      var opcoesDiv = document.querySelector('#nao, #sim');
+      opcoesDiv.style.display = 'none';
+      
+      var mensagemFinalDiv = document.querySelector('#mensagem-final');
+      mensagemFinalDiv.style.display = 'block';
+      
+      var simButton = document.querySelector('#sim button');
+      simButton.style.display = 'none';
+    }
+  </script>
+</body>
+</html>
